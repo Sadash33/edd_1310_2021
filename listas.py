@@ -27,11 +27,37 @@ class LinkedList:
             curr_node = curr_node.siguiente
         print("")
 
+    def tail(self):
+        curr_node = self.__head
+        while curr_node.siguiente != None:
+            curr_node = curr_node.siguiente
+        return curr_node
+
     def remove(self, value):
         curr_node = self.__head
-        while curr_node.data != value and curr_node.siguiente != None:
-            curr_node = curr_node.siguiente
-        if curr_node.data == value:
+        if self.__head.data == value:
+            self.__head = self.__head.siguiente
+        else:
+            anterior = None
+            while curr_node.data != value and curr_node.siguiente != None:
+                anterior = curr_node
+                curr_node = curr_node.siguiente
+            if curr_node.data == value:
+                anterior.siguiente = curr_node.siguiente
+            else:
+                print("El dato no existe en la lista")
+
+    def preppend(self, value):
+        nuevo = Nodo(value, self.__head)
+        self.__head = nuevo
+
+    def get(self, posicion=None): #por defecto regresa el último
+        contador = 0
+        if posicion == None:
+            dato = self.tail().data
+        else:
+            pass #palabra reservada para rellenar funciones vacias
+        return dato
 
 
 
@@ -45,3 +71,10 @@ l.append(6)
 l.append(20)
 print(f"L esta vacia? {l.is_empty()}")
 l.transversal()
+l.remove(6)
+l.transversal()
+l.remove(10)
+l.transversal()
+x = l.tail()
+print(x.data)
+print(l.get())
