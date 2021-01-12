@@ -1,0 +1,18 @@
+from PriorityQueue import PriorityQueue
+
+pq = PriorityQueue()
+pq.enqueue(4,"Maestre")
+pq.enqueue(2,"Ninos")
+pq.enqueue(4,"Mecanicos")
+pq.enqueue(3,"Hombres")
+pq.enqueue(4,"Vigia")
+pq.enqueue(5,"Capitan")
+pq.enqueue(4,"Timonel")
+pq.enqueue(3,"Mujeres")
+pq.enqueue(2,"3ra Edad")
+pq.enqueue(1,"Ninas")
+print(pq.to_string())
+pq.dequeue()
+pq.dequeue()
+pq.dequeue()
+pq.to_string()
